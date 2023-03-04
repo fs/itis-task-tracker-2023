@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const COPYRIGHT_TEXT = "© 2023 Stackers team";
 
@@ -18,8 +19,16 @@ const Wrapper = styled.header`
   right: 0;
 `;
 
+const StyledLink = styled(Link)`
+  color: white;
+`;
+
 const Footer = () => {
-  return <Wrapper>{COPYRIGHT_TEXT}</Wrapper>;
+  return (
+    <Wrapper>
+      <StyledLink to="/info">{COPYRIGHT_TEXT}</StyledLink>
+    </Wrapper>
+  );
 };
 
 export default Footer;

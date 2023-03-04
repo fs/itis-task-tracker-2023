@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import logoIcon from "../../icons/stackers.svg";
 
 const HEADER_TEXT = "Task tracker";
@@ -18,6 +20,10 @@ const Wrapper = styled.header`
   top: 0;
 `;
 
+const StyledLink = styled(Link)`
+  color: white;
+`;
+
 const Logo = styled.img`
   width: 30px;
   height: 30px;
@@ -27,7 +33,7 @@ const Logo = styled.img`
 const Header = () => {
   return (
     <Wrapper>
-      {HEADER_TEXT}
+      <StyledLink to="/">{HEADER_TEXT}</StyledLink>
       <Logo src={logoIcon} alt="logo" />
     </Wrapper>
   );
