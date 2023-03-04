@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import logoIcon from "../../icons/stackers.svg";
 
+const HEADER_TEXT = "Task tracker";
+
 const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
@@ -24,7 +26,7 @@ const Logo = styled.img`
 const Header = () => {
   return (
     <Wrapper>
-      Task tracker
+      {HEADER_TEXT}
       <Logo src={logoIcon} alt="logo" />
     </Wrapper>
   );
