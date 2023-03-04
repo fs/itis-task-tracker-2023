@@ -1,12 +1,15 @@
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/index";
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <Footer />
-    </>
+    // TODO: use HashRouter for deploy app
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
