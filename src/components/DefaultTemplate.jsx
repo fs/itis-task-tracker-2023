@@ -3,12 +3,6 @@ import styled from "styled-components";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 
-// const Wrapper = styled.main`
-
-//   flex: 1 0 auto;
-//   height: calc(100vh - 52px - 62px);
-// `;
-
 const MainContent = styled.main`
   display: flex;
   flex-direction: column;
