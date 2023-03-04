@@ -14,6 +14,7 @@ const Wrapper = styled.header`
   font-size: 20px;
 
   position: sticky;
+  height: 62px;
   top: 0;
 `;
 

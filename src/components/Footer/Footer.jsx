@@ -5,6 +5,7 @@ const COPYRIGHT_TEXT = "© 2023 Stackers team";
 const Wrapper = styled.header`
   display: flex;
   align-items: center;
+  height: 52px;
 
   padding: 1rem;
   background-color: #3a74f7;

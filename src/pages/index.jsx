@@ -1,13 +1,7 @@
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import DefaultTemplate from "../components/DefaultTemplate";
 
 const HomePage = () => {
-  return (
-    <>
-      <Header />
-      <Footer />
-    </>
-  );
+  return <DefaultTemplate>Home Page</DefaultTemplate>;
 };
 
 export default HomePage;
