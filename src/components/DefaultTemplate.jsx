@@ -9,6 +9,7 @@ const MainContent = styled.main`
   flex: 1 0 auto;
   min-height: calc(100vh - 52px - 62px);
   flex-grow: 1;
+  padding: 1rem;
 `;
 
 const DefaultTemplate = ({ children }) => {
