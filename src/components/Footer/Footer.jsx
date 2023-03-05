@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const COPYRIGHT_TEXT = "© 2023 Stackers team";
 
-const Wrapper = styled.header`
+const Wrapper = styled.footer`
   display: flex;
   justify-content: end;
   align-items: center;
@@ -14,7 +14,6 @@ const Wrapper = styled.header`
   color: white;
   font-size: 20px;
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
 `;
