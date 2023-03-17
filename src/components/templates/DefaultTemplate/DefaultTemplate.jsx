@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from "../../molecules/Header";
+import Footer from "../../molecules/Footer";
 
 const MainContent = styled.main`
   display: flex;

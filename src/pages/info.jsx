@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import DefaultTemplate from "../components/DefaultTemplate";
+import DefaultTemplate from "../components/templates/DefaultTemplate";
 
 const StyledList = styled.ul`
   display: flex;
