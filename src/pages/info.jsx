@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DefaultTemplate from "../components/templates/DefaultTemplate";
+import Button from "../components/atoms/Button";
 
 const StyledList = styled.ul`
   display: flex;
@@ -19,6 +20,7 @@ const InfoPage = () => {
         <li>Leading courses in ITIS</li>
         <li>We have many satisfied customers</li>
       </StyledList>
+      <Button label="Follow us" />
     </DefaultTemplate>
   );
 };
