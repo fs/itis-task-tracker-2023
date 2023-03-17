@@ -4,13 +4,13 @@ import styled, { css } from "styled-components";
 const StyledButton = styled.button(
   ({ color }) => css`
       background: ${color};
-      width: 10rem;
+      width: 160px;
       margin: 0 auto;
       text-align: center;
       cursor: pointer;
       color: white;
       border: none;
-      height: 2rem;
+      height: 32px;
     }
   `,
 );

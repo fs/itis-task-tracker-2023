@@ -30,11 +30,20 @@ const Logo = styled.img`
   background-color: white;
 `;
 
+const LogoWrapper = styled.div`
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+`;
+
 const Header = () => {
   return (
     <Wrapper>
       <StyledLink to="/">{HEADER_TEXT}</StyledLink>
-      <Logo src={logoIcon} alt="logo" />
+      <LogoWrapper>
+        <StyledLink to="/projects"> My Projects </StyledLink>
+        <Logo src={logoIcon} alt="logo" />
+      </LogoWrapper>
     </Wrapper>
   );
 };
