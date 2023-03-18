@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 } from "uuid";
 import styled from "styled-components";
 
 import Button from "../../atoms/Button";
@@ -46,7 +47,7 @@ const ProjectsList = () => {
     <Wrapper>
       <Table>
         <Head>
-          <tr>
+          <tr key={`table-header-${v4()}`}>
             <TableItem> Name </TableItem>
             <TableItem> Description </TableItem>
             <TableItem> Created At </TableItem>
@@ -54,7 +55,7 @@ const ProjectsList = () => {
         </Head>
         <tbody>
           {mockProjects.map(({ name, description, createdAt }) => (
-            <tr>
+            <tr key={`table-row-${v4()}`}>
               <TableItem> {name} </TableItem>
               <TableItem> {description} </TableItem>
               <TableItem> {createdAt} </TableItem>
