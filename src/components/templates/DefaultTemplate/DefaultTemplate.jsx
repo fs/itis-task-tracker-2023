@@ -16,7 +16,7 @@ const MainContent = styled.main`
 `;
 
 const ButtonWrapper = styled.div`
-  margin: 2rem 0;
+  margin-top: 2rem;
   position: fixed;
   top: 40px;
   right: 20px;
