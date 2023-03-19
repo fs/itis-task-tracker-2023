@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import logoIcon from "../../../icons/stackers.svg";
 
 const HEADER_TEXT = "Task tracker";
+export const HEADER_HEIGHT = "62px";
 
 const Wrapper = styled.header`
   display: flex;
@@ -16,7 +17,7 @@ const Wrapper = styled.header`
   font-size: 20px;
 
   position: sticky;
-  height: 62px;
+  height: ${HEADER_HEIGHT};
   top: 0;
 `;
 

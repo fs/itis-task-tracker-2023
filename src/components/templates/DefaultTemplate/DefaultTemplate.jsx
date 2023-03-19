@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import Header from "../../molecules/Header";
-import Footer from "../../molecules/Footer";
+import Header, { HEADER_HEIGHT } from "../../molecules/Header";
+import Footer, { FOOTER_HEIGHT } from "../../molecules/Footer";
 import Button from "../../atoms/Button";
 
 const MainContent = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  min-height: calc(100vh - 52px - 62px);
+  min-height: calc(100vh - ${FOOTER_HEIGHT} - ${HEADER_HEIGHT});
   flex-grow: 1;
   padding: 1rem;
   overflow: auto; // add this to enable overflow
