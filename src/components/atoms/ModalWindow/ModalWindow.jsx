@@ -14,9 +14,8 @@ const ModalWindow = ({ isOpen = true, setIsOpen = () => {}, children }) => {
       isOpen={isOpen}
       shouldCloseOnOverlayClick
       onRequestClose={() => setIsOpen(false)}
-      closeTimeoutMS={200}
     >
-      <CloseButton data-cy="close-modal-button" onClick={() => setIsOpen(false)} />
+      <CloseButton onClick={() => setIsOpen(false)} />
       {children}
     </Modal>
   );
