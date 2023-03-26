@@ -3,6 +3,7 @@ import { v4 } from "uuid";
 import styled from "styled-components";
 
 import Button from "../../atoms/Button";
+import ModalWindow from "../../atoms/ModalWindow";
 
 const mockProjects = [
   {
@@ -45,6 +46,7 @@ const Head = styled.thead`
 const ProjectsList = () => {
   return (
     <Wrapper>
+      <ModalWindow> Hello </ModalWindow>
       <Table>
         <Head>
           <tr key={`table-header-${v4()}`}>
