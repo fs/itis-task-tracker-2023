@@ -21,12 +21,8 @@
     "react/prop-types": 0,
     "arrow-body-style": 0,
     "no-console": "off",
-    "no-unused-expressions": [
-      "error",
-      {
-        "allowTernary": true
-      }
-    ],
+    "no-unused-expressions":  "off",
+    "no-unused-vars":  "off",
     "no-restricted-exports": ["error", {
       "restrictedNamedExports": [
         "then"

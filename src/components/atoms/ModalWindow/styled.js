@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const modalStyles = {
   content: {
     maxWidth: "520px",
-    minWidth: "500px",
+    minWidth: "400px",
     maxHeight: "80%",
     borderRadius: "5px",
     top: "50%",
