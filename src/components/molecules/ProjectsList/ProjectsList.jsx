@@ -2,8 +2,11 @@ import React from "react";
 import { v4 } from "uuid";
 import styled from "styled-components";
 
-import Button from "../../atoms/Button";
-import mockProjects from "./mockProjects";
+import { useProjects } from "src/lib/hooks/states/project";
+import { useCreateProject } from "src/lib/hooks/actions/createProject";
+import { useDestroyProject } from "src/lib/hooks/actions/destroyProject";
+
+import Button from "src/components/atoms/Button";
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -15,6 +18,7 @@ const Wrapper = styled.div`
 
 const Table = styled.table`
   width: 100%;
+  margin: 0 0 1rem;
 `;
 
 const TableItem = styled.td`
@@ -26,35 +30,44 @@ const Head = styled.thead`
 `;
 
 const ProjectsList = () => {
+  const { projects } = useProjects();
+
+  const [createProject] = useCreateProject();
+  const [destroyProject] = useDestroyProject();
+
   return (
     <Wrapper>
-      <Table>
-        <Head>
-          <tr key={`table-header-${v4()}`}>
-            <TableItem> Name </TableItem>
-            <TableItem> Description </TableItem>
-            <TableItem> Created At </TableItem>
-          </tr>
-        </Head>
-        <tbody>
-          {mockProjects.map(({ name, description, createdAt }) => (
-            <tr key={`table-row-${v4()}`}>
-              <TableItem> {name} </TableItem>
-              <TableItem> {description} </TableItem>
-              <TableItem> {createdAt} </TableItem>
-              <TableItem>
-                <Button label="Tasks" />
-              </TableItem>
-              <TableItem>
-                <Button label="Edit" color="#7938db" />
-              </TableItem>
-              <TableItem>
-                <Button label="Destroy" color="#eb5369" />
-              </TableItem>
+      {!!projects.length && (
+        <Table>
+          <Head>
+            <tr key={`table-header-${v4()}`}>
+              <TableItem> Name </TableItem>
+              <TableItem> Description </TableItem>
+              <TableItem> Created At </TableItem>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </Head>
+          <tbody>
+            {projects.map(({ id, name, description, createdAt }) => (
+              <tr key={`table-row-${id}`}>
+                <TableItem> {name} </TableItem>
+                <TableItem> {description || "-"} </TableItem>
+                <TableItem> {new Date(createdAt).toLocaleDateString("RU-ru")} </TableItem>
+                <TableItem>
+                  <Button label="Tasks" />
+                </TableItem>
+                <TableItem>
+                  <Button label="Edit" color="#7938db" />
+                </TableItem>
+                <TableItem>
+                  <Button label="Destroy" color="#eb5369" onClick={() => destroyProject({ id })} />
+                </TableItem>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      )}
+
+      <Button label="create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
     </Wrapper>
   );
 };
