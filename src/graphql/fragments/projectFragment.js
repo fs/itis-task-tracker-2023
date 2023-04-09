@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export default gql`
-  fragment Project on Project {
+  fragment ProjectInfo on Project {
     createdAt
     description
     id

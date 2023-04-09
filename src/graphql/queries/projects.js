@@ -6,7 +6,7 @@ export default gql`
   ${projectFragment}
   query {
     projects {
-      ...Project
+      ...ProjectInfo
     }
   }
 `;

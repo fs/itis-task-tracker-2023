@@ -7,7 +7,7 @@ export default gql`
   mutation DestroyProject($input: DestroyProjectInput!) {
     destroyProject(input: $input) {
       project {
-        ...Project
+        ...ProjectInfo
       }
     }
   }
