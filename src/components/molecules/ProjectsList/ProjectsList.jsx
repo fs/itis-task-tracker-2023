@@ -7,6 +7,8 @@ import { useCreateProject } from "src/lib/hooks/actions/createProject";
 import { useDestroyProject } from "src/lib/hooks/actions/destroyProject";
 
 import Button from "src/components/atoms/Button";
+import ProjectTableRow from "src/components/molecules/ProjectTableRow";
+
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -33,41 +35,30 @@ const ProjectsList = () => {
   const { projects } = useProjects();
 
   const [createProject] = useCreateProject();
-  const [destroyProject] = useDestroyProject();
+  // const [destroyProject] = useDestroyProject();
 
   return (
     <Wrapper>
       {!!projects.length && (
-        <Table>
-          <Head>
-            <tr key={`table-header-${v4()}`}>
-              <TableItem> Name </TableItem>
-              <TableItem> Description </TableItem>
-              <TableItem> Created At </TableItem>
-            </tr>
-          </Head>
-          <tbody>
-            {projects.map(({ id, name, description, createdAt }) => (
-              <tr key={`table-row-${id}`}>
-                <TableItem> {name} </TableItem>
-                <TableItem> {description || "-"} </TableItem>
-                <TableItem> {new Date(createdAt).toLocaleDateString("RU-ru")} </TableItem>
-                <TableItem>
-                  <Button label="Tasks" />
-                </TableItem>
-                <TableItem>
-                  <Button label="Edit" color="#7938db" />
-                </TableItem>
-                <TableItem>
-                  <Button label="Destroy" color="#eb5369" onClick={() => destroyProject({ id })} />
-                </TableItem>
+        <>
+          <Table>
+            <Head>
+              <tr>
+                <TableItem> Name </TableItem>
+                <TableItem> Description </TableItem>
+                <TableItem> Created At </TableItem>
               </tr>
+            </Head>
+            <tbody>
+            {projects.map((project) => (
+              <ProjectTableRow project={project} key={`table-row-${project.id}`} />
             ))}
-          </tbody>
-        </Table>
-      )}
+            </tbody>
+          </Table>
 
-      <Button label="create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
+          <Button label="create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
+        </>
+      )}
     </Wrapper>
   );
 };

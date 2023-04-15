@@ -5,7 +5,6 @@ const StyledButton = styled.button(
   ({ color }) => css`
       background: ${color};
       width: 160px;
-      margin: 0 auto;
       text-align: center;
       cursor: pointer;
       color: white;
