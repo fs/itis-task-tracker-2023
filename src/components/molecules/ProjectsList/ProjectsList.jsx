@@ -3,23 +3,7 @@ import { v4 } from "uuid";
 import styled from "styled-components";
 import ProjectTableRow from "../ProjectTableRow";
 
-const mockProjects = [
-  {
-    name: "Project #1",
-    description: "It's my first project",
-    createdAt: "22 days ago",
-  },
-  {
-    name: "Project #2",
-    description: "It's my second project",
-    createdAt: "20 days ago",
-  },
-  {
-    name: "Stackers team",
-    description: "",
-    createdAt: "10 days ago",
-  },
-];
+import mockProjects from "./mockProjects";
 
 const Wrapper = styled.div`
   overflow: auto;
