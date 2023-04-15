@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import Header, { HEADER_HEIGHT } from "../../molecules/Header";
-import Footer, { FOOTER_HEIGHT } from "../../molecules/Footer";
-import Button from "../../atoms/Button";
+import Button from "src/components/atoms/Button";
+import Header, { HEADER_HEIGHT } from "src/components/molecules/Header";
+import Footer, { FOOTER_HEIGHT } from "src/components/molecules/Footer";
 
 const MainContent = styled.main`
   display: flex;

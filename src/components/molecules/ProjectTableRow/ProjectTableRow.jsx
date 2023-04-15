@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+
 import { Link } from "react-router-dom";
 import Button from "src/components/atoms/Button";
-import DestroyProjectWindow from "../DestroyProjectWindow/DestroyProjectWindow";
+import DestroyProjectWindow from "src/components/molecules/DestroyProjectWindow";
 
 const TableItem = styled.td`
   padding: 12px;

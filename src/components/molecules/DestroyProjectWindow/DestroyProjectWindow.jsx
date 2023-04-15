@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import ModalWindow from "../../atoms/ModalWindow";
-import Button from "../../atoms/Button";
-import NotifierContext from "../../../context/NotifierContext";
+
+import Button from "src/components/atoms/Button";
+import ModalWindow from "src/components/atoms/ModalWindow";
+import NotifierContext from "src/context/NotifierContext";
 
 const ButtonsWrapper = styled.div`
   margin-top: 32px;
