@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-import { withTheme } from "styled-components";
 
 import { CloseButton, modalStyles } from "./styled";
 
@@ -23,4 +22,4 @@ const ModalWindow = ({ isOpen = true, setIsOpen = () => {}, children }) => {
 
 Modal.setAppElement("body");
 
-export default withTheme(ModalWindow);
+export default ModalWindow;
