@@ -7,5 +7,14 @@ export default gql`
     id
     name
     updatedAt
+    tasks {
+      createdAt
+      deadlineAt
+      description
+      id
+      state
+      title
+      updatedAt
+    }
   }
 `;

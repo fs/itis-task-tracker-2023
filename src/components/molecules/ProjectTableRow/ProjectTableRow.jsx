@@ -10,7 +10,7 @@ const TableItem = styled.td`
 `;
 
 const ProjectTableRow = ({ project }) => {
-  const { name, description, createdAt } = project;
+  const { name, description, createdAt, id } = project;
   const [isDestroyModalOpen, setIsDestroyModalOpen] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ const ProjectTableRow = ({ project }) => {
         <TableItem> {description} </TableItem>
         <TableItem> {createdAt} </TableItem>
         <TableItem>
-          <Link to="/projects/5">
+          <Link to={`/projects/${id}`}>
             <Button label="Tasks" />
           </Link>
         </TableItem>
@@ -32,7 +32,7 @@ const ProjectTableRow = ({ project }) => {
         </TableItem>
       </tr>
       {isDestroyModalOpen && (
-        <DestroyProjectWindow isOpen={isDestroyModalOpen} projectName={name} setIsOpen={setIsDestroyModalOpen} />
+        <DestroyProjectWindow id={id} isOpen={isDestroyModalOpen} projectName={name} setIsOpen={setIsDestroyModalOpen} />
       )}
     </>
   );

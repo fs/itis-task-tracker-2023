@@ -4,7 +4,7 @@ import projectFragment from "../fragments/projectFragment";
 
 export default gql`
   ${projectFragment}
-  query {
+  query Projects {
     projects {
       ...ProjectInfo
     }

@@ -1,5 +1,5 @@
 import DefaultTemplate from "../components/templates/DefaultTemplate";
-import ProjectsList from "../components/molecules/ProjectsList";
+import ProjectsList from "../components/organisms/ProjectsList";
 import Notifier from "../components/atoms/Notifier";
 
 const ProjectsPage = () => {

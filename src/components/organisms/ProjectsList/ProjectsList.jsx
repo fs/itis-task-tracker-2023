@@ -1,10 +1,8 @@
 import React from "react";
-import { v4 } from "uuid";
 import styled from "styled-components";
 
 import { useProjects } from "src/lib/hooks/states/project";
 import { useCreateProject } from "src/lib/hooks/actions/createProject";
-import { useDestroyProject } from "src/lib/hooks/actions/destroyProject";
 
 import Button from "src/components/atoms/Button";
 import ProjectTableRow from "src/components/molecules/ProjectTableRow";
@@ -33,9 +31,7 @@ const Head = styled.thead`
 
 const ProjectsList = () => {
   const { projects } = useProjects();
-
   const [createProject] = useCreateProject();
-  // const [destroyProject] = useDestroyProject();
 
   return (
     <Wrapper>
@@ -56,7 +52,7 @@ const ProjectsList = () => {
             </tbody>
           </Table>
 
-          <Button label="create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
+          <Button label="Create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
         </>
       )}
     </Wrapper>
