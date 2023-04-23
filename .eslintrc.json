@@ -10,10 +10,12 @@
   },
   "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": 0,
+    "import/prefer-default-export": 1,
+    "import/no-unresolved": 1,
     "react/react-in-jsx-scope": "off",
     "react/function-component-definition": [
-      "error",
+      1,
       {
         "namedComponents": ["arrow-function"]
       }
@@ -21,12 +23,25 @@
     "react/prop-types": 0,
     "arrow-body-style": 0,
     "no-console": "off",
-    "no-unused-expressions":  "off",
-    "no-unused-vars":  "off",
-    "no-restricted-exports": ["error", {
+    "no-undef": 1,
+    "no-unused-vars": 1,
+    "no-unused-expressions": [
+      1,
+      {
+        "allowTernary": true
+      }
+    ],
+    "no-restricted-exports": [1, {
       "restrictedNamedExports": [
         "then"
       ]
     }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["./"]
+      }
+    }
   }
 }

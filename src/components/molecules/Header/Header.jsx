@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import logoIcon from "../../../icons/stackers.svg";
+import logoIcon from "src/icons/stackers.svg";
 
 const HEADER_TEXT = "Task tracker";
 export const HEADER_HEIGHT = "62px";
