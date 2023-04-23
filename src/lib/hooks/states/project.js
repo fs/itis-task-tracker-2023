@@ -21,8 +21,6 @@ export const useProject = ({ projectId }) => {
     variables: { projectId }
   });
 
-  console.log(data)
-
   return {
     project: data?.project || {},
     loading,

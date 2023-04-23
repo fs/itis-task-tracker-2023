@@ -1,9 +1,10 @@
 import { useParams, useNavigate } from "react-router-dom";
-import DefaultTemplate from "../components/templates/DefaultTemplate";
-import Notifier from "../components/atoms/Notifier";
-import Button from "../components/atoms/Button";
-import { useProject } from "../lib/hooks/states/project";
-import ProjectInfo from "../components/organisms/ProjectInfo/ProjectInfo";
+import { useProject } from "src/lib/hooks/states/project";
+
+import DefaultTemplate from "src/components/templates/DefaultTemplate";
+import Notifier from "src/components/atoms/Notifier";
+import Button from "src/components/atoms/Button";
+import ProjectInfo from "src/components/organisms/ProjectInfo/ProjectInfo";
 
 const ProjectPage = () => {
   const { id } = useParams();

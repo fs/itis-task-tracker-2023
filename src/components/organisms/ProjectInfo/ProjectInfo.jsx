@@ -26,7 +26,7 @@ const ProjectInfo = ({ project }) => {
     <Wrapper>
       <Title> {name} </Title>
       <StyledList>
-        {tasks.map(({ title }) => <li>{title}</li>) }
+        {tasks.map(({ title, id }) => <li key={id}>{title}</li>) }
       </StyledList>
     </Wrapper>
   )
