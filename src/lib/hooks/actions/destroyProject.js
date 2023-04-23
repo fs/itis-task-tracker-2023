@@ -14,6 +14,7 @@ export const useDestroyProject = ({ onSubmit }) => {
       onSubmit();
       setMessage(`Проект ${data?.destroyProject?.project?.name} успешно удален`)
     },
+    onError: error => console.error(error),
   });
 
   const mutate = async ({ id }) => {
@@ -21,11 +22,7 @@ export const useDestroyProject = ({ onSubmit }) => {
       id,
     };
 
-    try {
-      await mutation({ variables: { input: destroyProjectInput } });
-    } catch (error) {
-      console.error(error);
-    }
+    await mutation({ variables: { input: destroyProjectInput } });
   };
 
   return [mutate, mutationState];
