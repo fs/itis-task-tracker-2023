@@ -5,8 +5,7 @@ import { useProjects } from "src/lib/hooks/states/project";
 
 import Button from "src/components/atoms/Button";
 import ProjectTableRow from "src/components/molecules/ProjectTableRow";
-import CreateProjectWindow from "../../molecules/CreateProjectWindow";
-
+import CreateProjectWindow from "src/components/molecules/CreateProjectWindow";
 
 const Wrapper = styled.div`
   overflow: auto;

@@ -14,9 +14,6 @@ describe('ProjectsList', () => {
   useProjects.mockImplementation(mockUseProjects);
 
   test('should show list of projects', async () => {
-    // Arrange
-    expect(1).toBe(1);
-
     // Act
     render(<ProjectsList />)
     const projectNames = screen.getAllByTestId('project-name')

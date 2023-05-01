@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import projects from "src/graphql/queries/projects";
 import createProject from "src/graphql/mutations/createProject";
 
-export const useCreateProject = ({ onSubmit }) => {
+export const useCreateProject = ({ onSubmit = () => {} }) => {
   const [mutation, mutationState] = useMutation(createProject, {
     refetchQueries: [{ query: projects }],
     onCompleted: onSubmit,

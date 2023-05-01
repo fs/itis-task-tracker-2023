@@ -1,7 +1,7 @@
 import React from "react";
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
+import * as Yup from "yup";
 import styled from "styled-components";
+import { Form as FormikForm, FormikProvider, useFormik } from "formik";
 
 import Button from "src/components/atoms/Button";
 import ModalWindow from "src/components/atoms/ModalWindow";
@@ -20,7 +20,7 @@ const ErrorWrapper = styled.div`
   color: #e18c8c;
   font-size: 0.75rem;
   margin-top: 0.25rem;
-`
+`;
 
 const StyledLabel = styled.label`
   display: flex;
@@ -38,51 +38,61 @@ const Input = styled.input`
 const CreateProjectWindow = ({ isOpen, setIsOpen }) => {
   const onSubmit = () => {
     setIsOpen(!isOpen);
-  }
+  };
   const [createProject] = useCreateProject({ onSubmit });
+
+  const create = (values) => {
+    console.log(values);
+    createProject(values);
+  };
 
   const schema = Yup.object().shape({
     name: Yup.string()
-      .min(2, 'Должно содержать больше 2 символов')
-      .max(50, 'Максимальная длина 50 символов')
-      .required('Это обязательное поле'),
+      .min(2, "Должно содержать больше 2 символов")
+      .max(50, "Максимальная длина 50 символов")
+      .required("Это обязательное поле"),
   });
 
   const formik = useFormik({
     initialValues: {
-      name: '',
-      description: '',
+      name: "",
+      description: "",
     },
     validationSchema: schema,
-    onSubmit: createProject,
+    onSubmit: create,
   });
+  const { setFieldValue, values, errors } = formik;
 
   return (
     <ModalWindow isOpen={isOpen} setIsOpen={setIsOpen}>
-      <form onSubmit={formik.handleSubmit}>
-        <Wrapper>
-          <StyledLabel htmlFor="name">
-            Name
-            <Input
-              id="name"
-              name="name"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-            <ErrorWrapper> {formik.errors.name} </ErrorWrapper>
-          </StyledLabel>
-          <StyledLabel htmlFor="description">
-            Description
-            <Input
-              id="description"
-              name="description"
-              onChange={formik.handleChange}
-              value={formik.values.email}
-            />
-          </StyledLabel>
-        </Wrapper>
-        <Button type="submit" label="Create" />
-      </form>
+      <FormikProvider value={formik}>
+        <FormikForm>
+          <Wrapper>
+            <StyledLabel htmlFor="name">
+              Name
+              <Input
+                id="name"
+                name="name"
+                onChange={({ target: { value } }) => setFieldValue("name", value)}
+                value={values.name}
+                data-testid="input-project-name"
+              />
+              <ErrorWrapper> {errors.name} </ErrorWrapper>
+            </StyledLabel>
+            <StyledLabel htmlFor="description">
+              Description
+              <Input
+                id="description"
+                name="description"
+                onChange={({ target: { value } }) => setFieldValue("description", value)}
+                value={values.description}
+                data-testid="input-project-description"
+              />
+            </StyledLabel>
+          </Wrapper>
+          <Button type="submit" label="Create" testId="create-project-button" />
+        </FormikForm>
+      </FormikProvider>
     </ModalWindow>
   );
 };
