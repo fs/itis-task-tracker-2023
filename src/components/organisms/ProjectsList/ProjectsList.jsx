@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { useProjects } from "src/lib/hooks/states/project";
-import { useCreateProject } from "src/lib/hooks/actions/createProject";
 
 import Button from "src/components/atoms/Button";
 import ProjectTableRow from "src/components/molecules/ProjectTableRow";
+import CreateProjectWindow from "../../molecules/CreateProjectWindow";
 
 
 const Wrapper = styled.div`
@@ -30,8 +30,8 @@ const Head = styled.thead`
 `;
 
 const ProjectsList = () => {
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const { projects } = useProjects();
-  const [createProject] = useCreateProject();
 
   return (
     <Wrapper>
@@ -52,9 +52,10 @@ const ProjectsList = () => {
             </tbody>
           </Table>
 
-          <Button label="Create new project" onClick={() => createProject({ name: "test", description: "lol" })} />
+          <Button label="Create new project" onClick={() => setIsCreateModalOpen(true)} />
         </>
       )}
+      {isCreateModalOpen && <CreateProjectWindow setIsOpen={setIsCreateModalOpen} isOpen={isCreateModalOpen} />}
     </Wrapper>
   );
 };
