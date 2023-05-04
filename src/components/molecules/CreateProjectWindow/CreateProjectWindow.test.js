@@ -1,5 +1,6 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { useCreateProject } from "src/lib/hooks/actions/createProject";
 
@@ -9,7 +10,7 @@ jest.mock("src/lib/hooks/actions/createProject");
 
 describe("CreateProjectWindow", () => {
   const mockCreateProject = jest.fn();
-  const mockUseCreateProject = jest.fn(() => [mockCreateProject])
+  const mockUseCreateProject = jest.fn(() => [mockCreateProject]);
   useCreateProject.mockImplementation(mockUseCreateProject);
 
   test("should call createProject on submit", async () => {
@@ -20,18 +21,19 @@ describe("CreateProjectWindow", () => {
     };
 
     // Act
+    const user = userEvent.setup();
     render(<CreateProjectWindow isOpen setIsOpen={jest.fn()} />);
 
     const projectNameField = screen.getByTestId("input-project-name");
-    fireEvent.change(projectNameField, { target: { value: expectedValue.name } });
+    await user.type(projectNameField, expectedValue.name);
 
     const projectDescriptionField = screen.getByTestId("input-project-description");
-    fireEvent.change(projectDescriptionField, { target: { value: expectedValue.description } });
+    await user.type(projectDescriptionField, expectedValue.description);
 
     const createProjectButton = screen.getByTestId("create-project-button");
-    fireEvent.click(createProjectButton);
+    await user.click(createProjectButton);
 
     // Assert
-    expect(mockCreateProject).toHaveBeenCalledWith("asd");
+    expect(mockCreateProject).toHaveBeenCalledWith(expectedValue);
   });
 });

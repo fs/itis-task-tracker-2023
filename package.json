@@ -2,7 +2,6 @@
   "name": "itis-task-tracker-2023",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "dependencies": {
     "@apollo/client": "^3.7.11",
     "formik": "^2.2.9",

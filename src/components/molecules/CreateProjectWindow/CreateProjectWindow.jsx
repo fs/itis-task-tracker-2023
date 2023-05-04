@@ -36,13 +36,13 @@ const Input = styled.input`
 `;
 
 const CreateProjectWindow = ({ isOpen, setIsOpen }) => {
-  const onSubmit = () => {
-    setIsOpen(!isOpen);
-  };
-  const [createProject] = useCreateProject({ onSubmit });
+  const [createProject] = useCreateProject({
+    onSubmit: () => {
+      setIsOpen(!isOpen);
+    },
+  });
 
-  const create = (values) => {
-    console.log(values);
+  const onSubmit = (values) => {
     createProject(values);
   };
 
@@ -59,7 +59,7 @@ const CreateProjectWindow = ({ isOpen, setIsOpen }) => {
       description: "",
     },
     validationSchema: schema,
-    onSubmit: create,
+    onSubmit,
   });
   const { setFieldValue, values, errors } = formik;
 
