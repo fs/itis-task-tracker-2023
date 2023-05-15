@@ -34,7 +34,7 @@ const ProjectsList = () => {
 
   return (
     <Wrapper>
-      {!!projects.length && (
+      {projects.length ? (
         <>
           <Table>
             <Head>
@@ -53,6 +53,8 @@ const ProjectsList = () => {
 
           <Button label="Create new project" onClick={() => setIsCreateModalOpen(true)} />
         </>
+      ) : (
+        <div data-testid='empty-message'>Нет проектов</div>
       )}
       {isCreateModalOpen && <CreateProjectWindow setIsOpen={setIsCreateModalOpen} isOpen={isCreateModalOpen} />}
     </Wrapper>
