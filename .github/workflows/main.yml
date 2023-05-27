@@ -17,4 +17,4 @@ jobs:
       - name: Test
         run: yarn ci:jest
       - name: Lint
-          run: yarn ci:lint-js
+        run: yarn ci:lint-js
