@@ -16,7 +16,7 @@ const ProjectTableRow = ({ project }) => {
   return (
     <>
       <tr>
-        <TableItem> {name} </TableItem>
+        <TableItem data-testid='project-name'> {name} </TableItem>
         <TableItem> {description} </TableItem>
         <TableItem> {createdAt} </TableItem>
         <TableItem>

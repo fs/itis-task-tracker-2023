@@ -5,8 +5,7 @@ import { useProjects } from "src/lib/hooks/states/project";
 
 import Button from "src/components/atoms/Button";
 import ProjectTableRow from "src/components/molecules/ProjectTableRow";
-import CreateProjectWindow from "../../molecules/CreateProjectWindow";
-
+import CreateProjectWindow from "src/components/molecules/CreateProjectWindow";
 
 const Wrapper = styled.div`
   overflow: auto;
@@ -35,7 +34,7 @@ const ProjectsList = () => {
 
   return (
     <Wrapper>
-      {!!projects.length && (
+      {projects.length ? (
         <>
           <Table>
             <Head>
@@ -54,6 +53,8 @@ const ProjectsList = () => {
 
           <Button label="Create new project" onClick={() => setIsCreateModalOpen(true)} />
         </>
+      ) : (
+        <div data-testid='empty-message'>Нет проектов</div>
       )}
       {isCreateModalOpen && <CreateProjectWindow setIsOpen={setIsCreateModalOpen} isOpen={isCreateModalOpen} />}
     </Wrapper>

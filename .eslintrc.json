@@ -14,6 +14,7 @@
     "import/prefer-default-export": 1,
     "import/no-unresolved": 1,
     "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": "off",
     "react/function-component-definition": [
       1,
       {
