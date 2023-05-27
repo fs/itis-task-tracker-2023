@@ -8,11 +8,13 @@ on:
       - main
 jobs:
   test:
-    name: Check the source code
+    name: Unit tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install packages
         run: yarn
+      - name: Test
+        run: yarn ci:jest
       - name: Lint
-        run: yarn test
+          run: yarn ci:lint-js
